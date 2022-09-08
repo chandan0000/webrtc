@@ -1,4 +1,4 @@
-const meetingController = require('../controllers/meeting.controller');
+const meetingController = require('../controller/meeting.controller');
 const express = require('express');
 const router = express.Router();
 router.post('/start', meetingController.startMeeting);

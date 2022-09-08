@@ -1,5 +1,5 @@
 const meetingServices = require('../services/meeting.services');
-exports.startMeeting = (req, res, next) => {
+const startMeeting = (req, res, next) => {
     const { hostId, hostName } = req.body;
     var model = {
         hostId: hostId,
@@ -13,7 +13,7 @@ exports.startMeeting = (req, res, next) => {
         return res.status(200).send({ message: "Success", data: results.id, })
     });
 }
-exports.checkMeetingExists = (req, res, next) => {
+const checkMeetingExists = (req, res, next) => {
     const { meeting } = req.body;
     meetingServices.checkMeetingExisits(meetingId, (error, results) => {
         if (error) {
@@ -22,7 +22,7 @@ exports.checkMeetingExists = (req, res, next) => {
         return res.status(200).send({ message: "Success", data: results, })
     });
 }
-exports.getAllMeetingUsers = (req, res, next) => {
+const getAllMeetingUsers = (req, res, next) => {
     const { meetingId } = req.query;
     meetingServices.getAllMeetingUsers(meetingId, (err, results) => {
         if (error) {
@@ -31,4 +31,4 @@ exports.getAllMeetingUsers = (req, res, next) => {
         return res.status(200).send({ message: "Success", data: results, })
     });
 };
-module.exports = { startMeeting, checkMeetingExists, getAllMeetingUsers };
+module.exports = { startMeeting , checkMeetingExists, getAllMeetingUsers};

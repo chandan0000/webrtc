@@ -1,5 +1,5 @@
-const meetingServices = require('../services/meeting-services');
-const { MeetingPayLoadEnum } = require('../utils/meeting-payload.enum');
+const meetingServices = require('../services/meeting.services');
+const { MeetingPayLoadEnum } = require('./meeting-payload.enum');
 async function joinMeeting(meetingId, socket, meetingServer, payload) {
     const { userId, name } = payload.data;
     meetingServices.isMeetingPresent(meetingId, async (error, results) => {
