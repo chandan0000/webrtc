@@ -20,6 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   static final GlobalKey<FormState> globalKey = GlobalKey<FormState>();
 
   String meetingId = "";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,6 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: FormHelper.submitButton(
                     'Join Meeting',
                     () async {
+                      log("join meeting");
                       if (validateAndSave()) {
                         validateMeeting(meetingId);
                       }
@@ -84,6 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: FormHelper.submitButton(
                     'Start Meeting',
                     () async {
+                      log("start meeting");
                       var response = await startMeeting();
                       final body = json.decode(response!.body);
                       final meetingId = body['data'];

@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:fwebrtc/utils/user.utils.dart';
 import 'package:http/http.dart' as http;
 
-String MEETING_API_URL = "http://192.168.0.67:3000/api/meeting";
+String MEETING_API_URL = "http://112.196.2.52:000/api/meeting";
 var client = http.Client();
 Future<http.Response?> startMeeting() async {
   Map<String, String> requestHeaders = {'content-type': 'application/json'};

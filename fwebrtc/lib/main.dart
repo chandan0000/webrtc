@@ -1,13 +1,8 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:fwebrtc/api/meeting_api.dart';
 import 'package:fwebrtc/screens/home_screen.dart';
 
-void main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  var a = await joinMeeting('123');
-  log(a.toString());
 
   runApp(const MyApp());
 }
