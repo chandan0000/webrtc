@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:fwebrtc/api/meeting_api.dart';
 import 'package:fwebrtc/screens/home_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  startMeeting();
 
   runApp(const MyApp());
 }
