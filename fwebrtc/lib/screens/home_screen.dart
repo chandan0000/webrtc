@@ -104,8 +104,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void validateMeeting(String meetingId) async {
     try {
-      var response = await joinMeeting(meetingId);
-      var data = response.data;
+      Response response = await joinMeeting(meetingId);
+      var data = json.decode(response.body);
       final meetingDetails = MeetingDetails.fromJson(data);
       // gotoMeetingScreen(meetingDetails);
     } catch (e) {
