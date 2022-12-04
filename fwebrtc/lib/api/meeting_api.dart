@@ -29,7 +29,7 @@ Future<Response?> startMeeting() async {
         data: {"hostId": userId, "hostName": ""});
 
     if (response.statusCode == 200) {
-      log(response.data);
+      log(response.data.toString());
       return response;
     } else {
       return null;
@@ -39,11 +39,10 @@ Future<Response?> startMeeting() async {
   }
 }
 
-Future<http.Response> joinMeeting(String meetId) async {
-  var response =
-      await http.get(Uri.parse('$MEETING_API_URL/join?meetingId=$meetId'));
-  if (response.statusCode >= 200 && response.statusCode < 400) {
-    log(response.body);
+Future<Response> joinMeeting(String meetId) async {
+  var response = await dio.get('$MEETING_API_URL/join?meetingId=$meetId');
+  if (response.statusCode == 200) {
+    log(response.data.toString());
     return response;
   } else {
     throw UnsupportedError('Not a valid Meeting');

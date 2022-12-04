@@ -104,10 +104,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void validateMeeting(String meetingId) async {
     try {
-      Response response = await joinMeeting(meetingId);
-      var data = json.decode(response.body);
+      var response = await joinMeeting(meetingId);
+      var data = response.data;
       final meetingDetails = MeetingDetails.fromJson(data);
       // gotoMeetingScreen(meetingDetails);
+
     } catch (e) {
       FormHelper.showSimpleAlertDialog(
           context, "Meeting App", "Invalid Meeting Id", "Ok", () {
