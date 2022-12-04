@@ -5,6 +5,7 @@ import '../model/meeting_details.dart';
 
 class JoinScreen extends StatefulWidget {
   final MeetingDetails? meetingDetails;
+
   const JoinScreen({super.key, this.meetingDetails});
 
   @override

@@ -4,20 +4,23 @@ const startMeeting = (req, res, next) => {
     var model = {
         hostId: hostId,
         hostName: hostName,
-        startTime: new Date.now()
+        startTime: Date.now()
     };
+    console.log('start metting')
     meetingServices.startMeeting(model, (err, results) => {
-        if (error) {
+        if (err) {
+            console.log('error metting')
             return next(err);
+
         }
         return res.status(200).send({ message: "Success", data: results.id, })
     });
 }
 const checkMeetingExists = (req, res, next) => {
-    const { meeting } = req.body;
+    const { meetingId } = req.params;
     meetingServices.checkMeetingExisits(meetingId, (error, results) => {
         if (error) {
-            return next(err);
+            return next(error);
         }
         return res.status(200).send({ message: "Success", data: results, })
     });
@@ -25,10 +28,10 @@ const checkMeetingExists = (req, res, next) => {
 const getAllMeetingUsers = (req, res, next) => {
     const { meetingId } = req.query;
     meetingServices.getAllMeetingUsers(meetingId, (err, results) => {
-        if (error) {
-            return next(error);
+        if (err) {
+            return next(err);
         }
         return res.status(200).send({ message: "Success", data: results, })
     });
 };
-module.exports = { startMeeting , checkMeetingExists, getAllMeetingUsers};
+module.exports = { startMeeting, checkMeetingExists, getAllMeetingUsers };

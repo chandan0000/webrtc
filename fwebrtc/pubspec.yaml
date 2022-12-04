@@ -42,6 +42,10 @@ dependencies:
   flutter_webrtc_wrapper: ^1.0.1
   flutter_webrtc: ^0.8.12
   http: ^0.13.5
+  dio: ^4.0.6
+  pretty_dio_logger: ^1.2.0-beta-1
+  alice: ^0.3.2
+ 
 
 dev_dependencies:
   flutter_test:
